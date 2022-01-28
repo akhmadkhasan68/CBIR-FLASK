@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request, send_from_directory
-from tensorflow.keras.models import load_model
+# from tensorflow.keras.models import load_model
+import tensorflow as tf
 import numpy as np
 import os
 import cv2
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
-model = load_model('pandan_seledri_class_model.h5')
+#model = load_model('pandan_seledri_class_model.h5')
+model = tf.keras.models.load_model('pandan_seledri_class_model.h5')
 
 class_dict = {0: 'pandan (pandan)', 1: 'seledri (seledri)'}
 
